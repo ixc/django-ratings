@@ -111,7 +111,7 @@ class RatingManager(object):
             cookie_name = 'vote-%d.%d.%s' % (kwargs['content_type'].pk, kwargs['object_id'], kwargs['key'][:6],) # -> md5_hexdigest?
             cookie = cookies.get(cookie_name)
             if cookie:    
-                kwargs['cookie'] = cookie
+                kwargs['cookie'] = unicode(cookie)
             else:
                 kwargs['cookie__isnull'] = True
             
