@@ -173,7 +173,7 @@ class RatingManager(object):
             cookie = cookies.get(cookie_name) # try to get existent cookie value
             if not cookie:
                 kwargs['cookie__isnull'] = True
-            kwargs['cookie'] = cookie
+            kwargs['cookie'] = unicode(cookie)
 
         try:
             rating, created = Vote.objects.get(**kwargs), False
